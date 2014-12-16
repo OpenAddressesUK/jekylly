@@ -37,4 +37,9 @@ Rails.application.routes.draw do
 end
 ```
 
+If you want to use Jekylly to manage your root page, you can do this:
+```
+root to: 'jekylly/static#show', defaults: { path: 'your_page' }
+```
+
 Assets and layouts go in the Rails app as usual. Jekyll site content goes into `app/views/static`
