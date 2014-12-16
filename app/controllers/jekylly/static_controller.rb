@@ -7,7 +7,7 @@ module Jekylly
     def show
       # Setup render options
       options = {
-        template: "static/#{@action}",
+        file: @filename,
         layout: "default"
       }
       # Set layout for rendering
