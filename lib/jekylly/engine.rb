@@ -27,5 +27,9 @@ module Jekylly
       end
     end
     
+    def self.site_data(name)
+      YAML.load_file(File.expand_path("app/views/static/_data/#{name}.yml", Rails.root))
+    end
+    
   end
 end

@@ -6,9 +6,9 @@ module Jekylly
     end
     
     def site_data(name)
-      YAML.load_file(File.expand_path("app/views/static/_data/#{name}.yml", Rails.root))
+      Jekylly::Engine.site_data(name)
     end
-    
+
     def site_posts
       Jekylly::Engine.site_posts
     end
