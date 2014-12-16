@@ -11,6 +11,8 @@ module Jekylly
       
       def self.call(template)
         compiled_source = erb.call(template)
+        # Strip frontmatter from markdown inputs
+        compiled_source.gsub!(/---\n.*?---\n/m,"")
         "Kramdown::Document.new(begin;#{compiled_source};end, auto_ids: true).to_html.html_safe"
       end
     end

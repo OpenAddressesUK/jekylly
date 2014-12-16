@@ -14,9 +14,8 @@ module Jekylly
       options[:layout] = @metadata['layout'] if @metadata['layout']
       # Render through the usual pipeline
       str = render_to_string options
-      # Strip YAML frontmatter from output
-      str.gsub!(/---$.*?^---$/m,'') # post-HTML
-      str.gsub!(/\<p\>.*?—\<\/p\>/m,'') # post-Markdown
+      # Strip YAML frontmatter from output if HTML (markdown is handled earlier on in the pipeline)
+      str.gsub!(/---$.*?^---$/m,'')
       # Render out to response
       render inline: str.html_safe
     end
