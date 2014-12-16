@@ -35,7 +35,7 @@ module Jekylly
       @action = path
       # Chuck a 404 if the @filename is nil
       if @filename.nil?
-        # 404
+        render(file: "#{Rails.root}/public/404.html", :layout => false, :status => 404)
       end
     end
     
