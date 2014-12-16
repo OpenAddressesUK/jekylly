@@ -9,6 +9,10 @@ module Jekylly
       YAML.load_file(File.expand_path("app/views/static/_data/#{name}.yml", Rails.root))
     end
     
+    def site_posts
+      Jekylly::Engine.site_posts
+    end
+    
     def include(template, parameters = {})
       render partial: "static/_includes/#{template}", locals: parameters
     end

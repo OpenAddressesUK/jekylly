@@ -18,6 +18,14 @@ module Jekylly
     ActionView::Template.register_template_handler :md, MarkdownHandler
     ActionView::Template.register_template_handler :markdown, MarkdownHandler
     
+    def self.site_posts
+      @@posts ||= begin
+        prefix = "#{Rails.root}/app/views/static/"
+        post_files = Dir.glob("#{prefix}**/_posts/**")        
+        post_paths = post_files.map{|file| file.gsub(prefix,'')}
+        post_paths.map { |path| Jekylly::Post.new(path) }
+      end
+    end
     
   end
 end
