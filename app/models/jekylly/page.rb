@@ -13,10 +13,6 @@ module Jekylly
       content
     end
 
-    def excerpt
-      content.strip_html_tags
-    end
-
     def metadata
       @metadata ||= YAML.load_file(File.expand_path("app/views/static/#{@path}", Rails.root))
     end
